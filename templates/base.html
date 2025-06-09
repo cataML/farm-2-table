@@ -23,12 +23,12 @@
                 <li><a href="{% url 'index' %}" class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}">Home</a></li>
                 <li><a href="">About Us </a></li>
                 <li><a href="{% url 'market' %}" class="{% if request.resolver_match.url_name == 'market' %}active{% endif %}">Marketplace </a></li>
-                <li><a href="{% url 'cart:cart' %}" class="{% if request.resolver_match.url_name == 'cart' %}active{% endif %}">Cart</a></li>
+                <li><a href="" class="{% if request.resolver_match.url_name == 'cart' %}active{% endif %}">Cart</a></li>
                 <li><a href="">Contact</a></li>
             </ul>
             <div class="icons">
                 <a href=""><i class="fas fa-user"></i> Log in</a> 
-                <a href="{% url 'cart:cart' %}"><i class="fas fa-shopping-cart"></i> Cart</a> 
+                <a href=""><i class="fas fa-shopping-cart"></i> Cart</a> 
             </div>
        </nav>
     </header>

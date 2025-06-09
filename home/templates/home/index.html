@@ -1,0 +1,210 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home | FreshhFarm Connect{% endblock %}
+
+{% block content %}
+<style>
+  .hero-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: black; /* fallback */
+}
+
+.video-container {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none; /* so clicks go through */
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 177.77vh; /* 16:9 aspect ratio width based on viewport height */
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border: none;
+}
+
+/* Foreground content */
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 90%;
+}
+
+.content h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+}
+
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.cta-buttons button {
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-buttons button:hover {
+  background-color: #388e3c;
+}
+
+/* Medium and larger screens */
+@media (min-width: 600px) {
+  .content h1 {
+    font-size: 2rem;
+  }
+
+  .cta-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .cta-buttons button {
+    font-size: 1.1rem;
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content h1 {
+    font-size: 2.5rem;
+  }
+}
+
+</style>
+ <section class="hero-section">
+  <div class="video-container">
+    <iframe
+    width="560" height="315"
+    src="https://www.youtube.com/embed/WazK8e88axE?autoplay=1&mute=1&loop=1&playlist=WazK8e88axE&controls=0&showinfo=0&rel=0&modestbranding=1"
+    allow="autoplay; encrypted-media"
+    frameborder="0"
+    allowfullscreen
+  ></iframe>
+  </div>
+  <div class="content">
+    <h1>From farm to table, fresh every time.</h1>
+    <div class="cta-buttons">
+      <a href=""><button>Order Now</button></a>
+      <a href=""><button>Sell with us</button></a>
+    </div>
+  </div>
+</section>
+<br>
+    <section>
+      <h3 class="h3">See our products</h3>
+        <div class="featured-farmers">
+            <div class="carousel-container">
+                <div class="carousel-item">
+                    <img src="{% static 'images/orange.jpeg' %}" alt="Farmer 1">
+                    <p>Fresh, juicy oranges grown with care and packed with natural sweetness and vitamin C—perfect for snacking, juicing, or brightening your day the healthy way.</p>
+                  </div>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-item">
+                    <img src="{% static 'images/groundnuts.jpeg' %}" alt="Farmer 2">
+                    <p>Freshly harvested groundnuts, rich in protein and healthy fats. Ideal for roasting, snacking, or cooking—sourced directly from our trusted local farmers for peak flavor and quality</p>
+                  </div>
+            </div>
+             <div class="carousel-container">
+                <div class="carousel-item">
+                  <img src="{% static 'images/sweet-potatoes.jpeg' %}" alt="Farmer 3">
+                    <p>Naturally sweet, nutrient-rich, and grown with care — our farm-fresh sweet potatoes are perfect for roasting, mashing, or baking. A delicious and wholesome choice straight from the soil to your table</p>
+                  </div>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-item">
+                    <img src="{% static 'images/broccoli.jpeg' %}" alt="Farmer 4">
+                    <p>A nutrient-rich green vegetable packed with vitamins A, C, and K. Fresh from the farm, our broccoli is crisp, flavorful, and perfect for steaming, roasting, or tossing into salads and stir-fries.</p>
+                  </div>
+            </div>
+           
+              <a href="marketplace.html" class="cta-button">Browse All Products</a>
+      
+            
+        </div>
+        <br>
+    <section>
+      <h3 class="h3">Meet our farmers</h3>
+        <div class="featured-farmers">
+            <div class="carousel-container">
+                <div class="carousel-item">
+                    <img src="{% static 'images/farmer1.jpg' %}" alt="Farmer 1">
+                    <p>Jacton Kasala - Organic Vegetables</p>
+                  </div>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-item">
+                    <img src="{% static 'images/farmer2.jpeg' %}" alt="Farmer 2">
+                    <p>Joseph Sikolia - Fresh Fruits</p>
+                  </div>
+            </div>
+             <div class="carousel-container">
+                <div class="carousel-item">
+                  <img src="{% static 'images/farmer3.jpeg' %}" alt="Farmer 3">
+                    <p>Belinda Kasavuli - Dairy Products</p>
+                  </div>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-item">
+                    <img src="{% static 'images/farmer4.jpeg' %}" alt="Farmer 4">
+                    <p>Felix Williams - Free-range Eggs</p>
+                  </div>
+            </div>
+        </div>
+      </section>
+        <section class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps-container">
+          <div class="step">
+            <i class="fas fa-shopping-cart"></i> Choose your products 
+            <h3>Browse Farms</h3>
+            <p>Explore local farms and their fresh, organic products.</p>
+          </div>
+          <div class="step">
+            <i class="fas fa-laptop"></i> Order Online 
+    
+            <h3>Choose Products</h3>
+            <p>Select seasonal fruits, veggies, dairy, and more.</p>
+          </div>
+          <div class="step">
+            <i class="fas fa-mobile-alt"></i> Place Your Order
+            <h3>Place Your Order</h3>
+            <p>Order directly from your favorite farmer with secure checkout.</p>
+          </div>
+          <div class="step">
+            <i class="fas fa-receipt"></i> Pick up or Have it Delivered
+            <h3>Fresh Delivery</h3>
+            <p>Get fresh-farm products delivered to your doorstep.</p>
+          </div>
+        </div>
+      </section>
+      
+{% endblock %}
+

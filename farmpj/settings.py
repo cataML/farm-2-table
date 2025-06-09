@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #Custom apps
     'home.apps.HomeConfig',
-    'farm.apps.FarmConfig'
+    'farmapp.apps.FarmappConfig'
 ]
 
 MIDDLEWARE = [
