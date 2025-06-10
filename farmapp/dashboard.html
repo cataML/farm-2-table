@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freshfarm Connect|Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo"><img src="images/Logo.png" alt="Freshfarm Connect"></div>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+              </button>
+            <ul class="nav-links">
+              <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About.html">About Us </a></li>
+                <li><a href="Marketplace.html">Marketplace </a></li>
+                <li><a href="checkout.html">Checkout </a></li>
+                <li><a href="Dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li><a href="sell.html">Sell with Us</a></li>
+              </ul>
+            <div class="icons">
+                <a href=""><i class="fas fa-user"></i> Log in</a> 
+                <a href="checkout.html"><i class="fas fa-shopping-cart"></i> Cart</a> 
+            </div>
+       </nav>
+    </header>
+    
+    
+  
+    
+    <footer class="site-footer">
+        <div class="footer-content">
+          <p>&copy; 2025 Freshfarm Connect</p>
+          <nav class="footer-links">
+            <a href="/about">About Us</a>
+            <a href="/privacy-policy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+            <a href="/contact">Contact</a>
+          </nav>
+        </div>
+      </footer>
+ 
+      <script>
+        function login() {
+          const username = document.getElementById("username").value.trim();
+          const role = document.getElementById("login-role").value;
+      
+          if (!username || !role) {
+            alert("Please enter a username and select a role.");
+            return;
+          }
+      
+          // Store login in localStorage (simulating a session)
+          localStorage.setItem("username", username);
+          localStorage.setItem("role", role);
+      
+          showDashboard(role);
+        }
+      
+        function logout() {
+          localStorage.removeItem("username");
+          localStorage.removeItem("role");
+          document.querySelector(".navbar").style.display = "none";
+          document.getElementById("role-switcher-panel").style.display = "none";
+          document.getElementById("login-panel").style.display = "block";
+      
+          // Hide all dashboards
+          document.querySelectorAll(".dashboard-panel").forEach(el => el.style.display = "none");
+        }
+      
+        function switchRole(newRole) {
+          if (!newRole) return;
+          localStorage.setItem("role", newRole);
+          showDashboard(newRole);
+        }
+      
+        function showDashboard(role) {
+          document.getElementById("login-panel").style.display = "none";
+          document.getElementById("role-switcher-panel").style.display = "block";
+          document.querySelector(".navbar").style.display = "flex";
+      
+          // Reset all views
+          document.querySelectorAll(".dashboard-panel").forEach(el => el.style.display = "none");
+          document.querySelectorAll(".navbar .nav-buyer, .navbar .nav-farmer, .navbar .nav-admin").forEach(el => el.style.display = "none");
+      
+          // Show relevant nav links
+          document.querySelectorAll(".nav-" + role).forEach(el => el.style.display = "inline-block");
+      
+          // Show relevant dashboard
+          document.querySelector(".dashboard-panel." + role).style.display = "block";
+      
+          // Update role switcher
+          document.getElementById("role-switcher").value = role;
+        }
+      
+        function exportCSV() {
+          alert("📄 CSV Export triggered!");
+          // You can hook into real export logic here
+        }
+      
+        function exportPDF() {
+          alert("🧾 PDF Export triggered!");
+          // You can hook into real export logic here
+        }
+      
+        // Auto-load if session exists
+        window.onload = () => {
+          const username = localStorage.getItem("username");
+          const role = localStorage.getItem("role");
+      
+          if (username && role) {
+            showDashboard(role);
+          }
+        }
+      </script>
+</body>
+</html>

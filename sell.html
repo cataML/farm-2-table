@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell with us</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+<style>
+.container {
+padding: 16px;
+max-width: 900px;
+margin: auto;
+}
+
+/* Header */
+.header1 {
+text-align: center;
+margin-bottom: 32px;
+width: 50%;
+text-align: center;
+align-self: center;
+margin-left: 25%;
+background-color: aquamarine;
+box-shadow: 5px 10px 15px black
+}
+
+.header1 h1 {
+font-size: 28px;
+margin-bottom: 12px;
+}
+
+.header1 p {
+font-size: 16px;
+}
+
+/* How It Works */
+.procedure h2 {
+font-size: 20px;
+margin-bottom: 16px;
+text-align: center;
+}
+
+.steps {
+display: flex;
+flex-direction: column;
+gap: 16px;
+}
+
+.step {
+background-color: #fff;
+border: 1px solid #e0e0e0;
+border-radius: 10px;
+padding: 16px;
+text-align: center;
+}
+
+/* Call to Action */
+.cta1 {
+margin: 32px 0;
+display: flex;
+flex-direction: column;
+gap: 12px;
+align-items: center;
+}
+
+.btn {
+  padding: 12px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #17a51c;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bolder;
+  box-shadow: 5px 10px 15px black;
+}
+
+.primary1 {
+background-color: #17a51c;
+color: #fff;
+border: none;
+}
+
+.secondary1 {
+background-color: #17a51c;
+color: white;
+border: 2px solid #28a745;
+}
+
+/* FAQ Section */
+.faq-item {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.5rem;
+    text-align: center;
+  }
+  h2{
+      text-align: center;
+  }
+
+  .faq-question {
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .faq-answer {
+    display: none;
+    margin-top: 0.5rem;
+    color: #333;
+  }
+.modal1 {
+display: flex;
+flex-direction: row;
+position: fixed;
+z-index: 999;
+left: 0; top: 0;
+width: 100%; height: 100%;
+background: rgba(0,0,0,0.5);
+}
+.modal-content1 {
+background: white;
+margin: 10% auto;
+padding: 2rem;
+border-radius: 10px;
+width: 90%;
+max-width: 400px;
+position: relative;
+}
+.modal-content1 input{
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  margin-bottom: 5px;
+}
+.checkbox{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 14px;
+  cursor: pointer;
+}
+.checkbox-label input[type="checkbox"] {
+width: 16px;
+height: 16px;
+}
+
+.close {
+position: absolute;
+right: 1rem;
+top: 1rem;
+font-size: 1.5rem;
+cursor: pointer;
+}
+.custom-checkbox {
+display: flex;
+align-items: center;
+cursor: pointer;
+font-family: Arial, sans-serif;
+font-size: 14px;
+}
+
+.custom-checkbox input[type="checkbox"] {
+display: none;
+}
+
+.custom-checkbox span {
+display: inline-block;
+width: 18px;
+height: 18px;
+border: 1px solid black;
+border-radius: 4px;
+margin-right: 8px;
+position: relative;
+margin-bottom: 10px;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + span::after {
+content: "";
+position: absolute;
+top: 2px; left: 5px;
+width: 5px; height: 10px;
+border: solid #28a745;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.url{
+  margin-left: 40%;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  background: #fff;
+  padding: 1rem;
+  margin: 10%;
+  max-width: 400px;
+  border-radius: 8px;
+  position: relative;
+}
+.modal-content input{
+  padding: 5px;
+  margin: 5px;
+  width: 100%;
+  display: flex;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  position: relative;
+}
+.modal-content label{
+  margin: 2px;
+}
+.close {
+  position: absolute;
+  right: 1rem;
+  top: 0.5rem;
+  font-size: 24px;
+  color: #888;
+  cursor: pointer;
+}
+/* Responsive Layout */
+@media (min-width: 768px) {
+.steps {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.step {
+  flex: 1;
+  margin: 0 8px;
+}
+
+.cta {
+  flex-direction: row;
+  justify-content: center;
+}
+
+.btn {
+  width: auto;
+  min-width: 180px;
+}
+}
+  </style>
+</head>
+  </head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo"><img src="images/Logo.png" alt="Freshfarm Connect"></div>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+              </button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About.html">About Us </a></li>
+                <li><a href="Marketplace.html">Marketplace </a></li>
+                <li><a href="checkout.html">Checkout </a></li>
+                <li><a href="Dashboard.html">Dashboard</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li><a href="sell.html" class="active">Sell with Us</a></li>
+              </ul>
+            <div class="icons">
+                <a href=""><i class="fas fa-user"></i> Log in</a> 
+                <a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a> 
+            </div>
+       </nav>
+    </header>
+   
+<body>
+
+        <!-- Header -->
+        <div class="header1">
+          <h1>Sell With Us</h1>
+          <p>Join our marketplace and reach customers directly with your farm-fresh products.</p>
+        </div>
+    
+        <!-- How It Works -->
+        <section class="procedure">
+          <h2>How It Works</h2>
+          <div class="steps">
+            <div class="step">
+              <h3>1. Sign Up</h3>
+              <p>Create your seller account to get started.</p>
+            </div>
+            <div class="step">
+              <h3>2. List Products</h3>
+              <p>Add your farm products with details and prices.</p>
+            </div>
+            <div class="step">
+              <h3>3. Start Selling</h3>
+              <p>Get orders, deliver to customers, and get paid.</p>
+            </div>
+          </div>
+        </section>
+    
+        <!-- Call to Action -->
+         
+
+
+          </div>
+         </section>
+        <section class="cta1">
+            <a href="#" class="btn primary" onclick="openSignupModal()">Sign Up to Sell</a>
+            <div id="signupModal" class="modal">
+              <div class="modal-content">
+                <span class="close" onclick="closeSignupModal()">&times;</span>
+                <h2>Seller Registration</h2>
+                <form>
+                  <label for="name">Full Name</label>
+                  <input type="text" id="name" required>
+            
+                  <label for="email">Email</label>
+                  <input type="email" id="email" required>
+            
+                  <label for="contact">Phone Number</label>
+                  <input type="tel" id="phone" required>
+            
+                  <label for="farm-location">Farm Location</label>
+                  <input type="text" id="farm-location" required>
+            
+                  <label for="password">Password</label>
+                  <input type="password" id="password" required>
+            
+                  <label for="confirm-password">Confirm Password</label>
+                  <input type="password" id="confirm-password" required>
+            
+                  
+                  <label class="custom-checkbox">
+                    <input type="checkbox" id="agree" name="agree" value="yes">
+                    <span></span> I agree to the Terms
+                  </label>
+            
+                  <button type="submit" class="btn primary">Register</button>
+                </form>
+              </div>
+            </div>
+            
+            
+            
+            <a href="#" class="btn secondary" onclick="openLoginModal()">Already a Seller? Log In</a>
+            <div id="loginModal" class="modal">
+                <div class="modal-content1">
+                  <span class="close" onclick="closeLoginModal()">&times;</span>
+                  <h2>Seller Login</h2>
+                  <form action="/login" method="POST">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" name="email" required>
+              
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="password" required>
+
+                    <label class="custom-checkbox">
+                        <input type="checkbox" id="agree" name="agree" value="yes">
+                        <span></span> Remember me
+                        <a href="" class="url">Forgot password?</a>
+                    </label>
+                   <button type="submit" class="btn secondary1">Log In</button>
+                  </form>
+                  
+                </div>
+              </div>
+
+        </section>
+    
+        <!-- FAQ -->
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleAnswer(this)">
+            What can I sell?
+          </div>
+          <div class="faq-answer">
+            You can sell a wide variety of farm-fresh goods—including fruits, vegetables, dairy, grains, meats, and more. If it’s natural and grown or made on your farm, it belongs here.
+          </div>
+        </div>
+      
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleAnswer(this)">
+            Are there any fees?
+          </div>
+          <div class="faq-answer">
+            No upfront or listing fees! We only charge a small commission on each sale, so you earn more with every successful order.
+          </div>
+        </div>
+      
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleAnswer(this)">
+            How do I get paid?
+          </div>
+          <div class="faq-answer">
+            Payouts are fast and secure via M-Pesa, PayPal, or direct bank transfer. Choose what works best for you.
+          </div>
+        </div>
+          <div class="faq-item">
+            <div class="faq-question">How do I place an order?</div>
+            <div class="faq-answer">Add products to your cart, fill out your shipping info, and complete payment at checkout.</div>
+          </div>
+    
+          <div class="faq-item">
+            <div class="faq-question">What payment methods are accepted?</div>
+            <div class="faq-answer">We support M-Pesa, PayPal, and bank transfers for your convenience.</div>
+          </div>
+    
+          <div class="faq-item">
+            <div class="faq-question">Can I cancel or change my order?</div>
+            <div class="faq-answer">Yes, contact our support team within 2 hours to change or cancel your order.</div>
+          </div>
+        </section>
+
+        <footer class="site-footer">
+          <div class="footer-content">
+            <p>&copy; 2025 Freshfarm Connect</p>
+            <nav class="footer-links">
+              <a href="/about">About Us</a>
+              <a href="/privacy-policy">Privacy Policy</a>
+              <a href="/terms">Terms of Service</a>
+              <a href="/contact">Contact</a>
+            </nav>
+          </div>
+        </footer>
+        <script>
+            function toggleAnswer(element) {
+              const answer = element.nextElementSibling;
+              answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
+            }
+          </script>
+          <script>
+            function openSignupModal() {
+              document.getElementById("signupModal").style.display = "block";
+            }
+            
+            function closeSignupModal() {
+              document.getElementById("signupModal").style.display = "none";
+            }
+            </script>
+            <script>
+                function openLoginModal() {
+                  document.getElementById("loginModal").style.display = "block";
+                }
+                function closeLoginModal() {
+                  document.getElementById("loginModal").style.display = "none";
+                }
+                </script>
+                <script>
+                  function openSignupModal() {
+                    document.getElementById("signupModal").style.display = "block";
+                  }
+                
+                  function closeSignupModal() {
+                    document.getElementById("signupModal").style.display = "none";
+                  }
+                
+                  // Close modal when clicking outside of it
+                  window.onclick = function (event) {
+                    const modal = document.getElementById("signupModal");
+                    if (event.target === modal) {
+                      modal.style.display = "none";
+                    }
+                  };
+                </script>
+
+    
+</body>
+</html>

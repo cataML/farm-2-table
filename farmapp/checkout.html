@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freshfarm Connect</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+  <style>
+  .checkout-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cart, .checkout {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 1rem;
+}
+
+input[type="number"] {
+  width: 60px;
+  margin-left: 1rem;
+  padding: 5px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"] {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+}
+
+.btn1 {
+  background: #388e3c;
+  color: white;
+  padding: 0.75rem 1.2rem;
+  border: none;
+  margin-top: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.total {
+  font-weight: bold;
+  margin-top: 1rem;
+}
+.remove-btn {
+  background: #e53935;
+  color: white;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  margin-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+/* 📱 Tablet & Desktop */
+@media (min-width: 768px) {
+  .checkout-container {
+    flex-direction: row;
+  }
+
+  .cart, .checkout {
+    flex: 1;
+  }
+}
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+        <div class="logo"><img src="images/Logo.png" alt="Freshfarm Connect"></div>
+        <button class="menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About.html">About Us </a></li>
+            <li><a href="Marketplace.html">Marketplace </a></li>
+            <li><a href="checkout.html" class="active">Checkout </a></li>
+            <li><a href="Dashboard.html">Dashboard</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="sell.html">Sell with Us</a></li>
+          </ul>
+        <div class="icons">
+            <a href=""><i class="fas fa-user"></i> Log in</a> 
+            <a href="checkout.html"><i class="fas fa-shopping-cart"></i> Cart</a> 
+        </div>
+   </nav>
+</header>
+  <section class="checkout-container">
+    <!-- 🛒 Cart Section -->
+    <div class="cart">
+      <h2>Your Cart</h2>
+      <ul id="cart-items">
+        <!-- Items will be injected by JS -->
+      </ul>
+      <p class="total">Total: <strong id="total">Ksh 0</strong></p>
+
+      
+    </div>
+
+    <!-- 📦 Checkout Section -->
+    <div class="checkout">
+      <h2>Delivery & Payment</h2>
+      <form>
+        <input type="text" placeholder="Full Name" required />
+        <input type="tel" placeholder="Phone Number" required />
+        <input type="text" placeholder="Delivery Address" required />
+        <input type="email" placeholder="Email (optional)" />
+
+        <h3>Payment Method</h3>
+        <label><input type="radio" name="payment" checked /> M-Pesa</label>
+        <label><input type="radio" name="payment" /> PayPal</label>
+        <label><input type="radio" name="payment" /> Bank Transfer</label>
+
+        <button type="submit" class="btn1">Place Order</button>
+      </form>
+    </div>
+  </section>
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Freshfarm Connect</p>
+      <nav class="footer-links">
+        <a href="/about">About Us</a>
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    const qtyInputs = document.querySelectorAll('.item-qty');
+    const totalEl = document.getElementById('total');
+
+    function updateTotal() {
+      let total = 0;
+      qtyInputs.forEach(input => {
+        const price = parseInt(input.dataset.price);
+        const qty = parseInt(input.value);
+        total += price * qty;
+      });
+      totalEl.textContent = `Ksh ${total}`;
+    }
+
+    qtyInputs.forEach(input => input.addEventListener('input', updateTotal));
+    updateTotal();
+  </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const cartItems = [
+      { id: 1, name: "Strawberries", price: 400, unit: "/kg", qty: 1 },
+      { id: 2, name: "Spinach", price: 40, unit: "/bunch", qty: 2 },
+    ];
+
+    const savedCart = JSON.parse(localStorage.getItem("cart"));
+    const cart = savedCart || cartItems;
+
+    const cartList = document.getElementById("cart-items");
+    const totalEl = document.getElementById("total");
+
+    function renderCart() {
+      cartList.innerHTML = "";
+
+      cart.forEach(item => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          ${item.name} (Ksh ${item.price}${item.unit})
+          <input type="number" min="1" value="${item.qty}" data-id="${item.id}" class="item-qty">
+          <button data-id="${item.id}" class="remove-btn">Remove</button>
+        `;
+        cartList.appendChild(li);
+      });
+
+      updateTotal();
+      attachEventListeners();
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+    function updateTotal() {
+      let total = 0;
+      cart.forEach(item => {
+        total += item.price * item.qty;
+      });
+      totalEl.textContent = `Ksh ${total}`;
+    }
+
+    function attachEventListeners() {
+      document.querySelectorAll(".item-qty").forEach(input => {
+        input.addEventListener("input", e => {
+          const id = parseInt(e.target.dataset.id);
+          const item = cart.find(i => i.id === id);
+          item.qty = parseInt(e.target.value);
+          updateTotal();
+          localStorage.setItem("cart", JSON.stringify(cart));
+        });
+      });
+
+      document.querySelectorAll(".remove-btn").forEach(btn => {
+        btn.addEventListener("click", e => {
+          const id = parseInt(e.target.dataset.id);
+          const index = cart.findIndex(i => i.id === id);
+          cart.splice(index, 1);
+          renderCart();
+        });
+      });
+    }
+
+    renderCart();
+  });
+</script>
+
+</body>
+</html>
