@@ -4,115 +4,44 @@
 
 {% block content %}
 <style>
-  .hero-section {
+.hero-section {
   position: relative;
-  height: 100vh;
+  width: 100%;
+  height: 100vh; /* Full screen height */
   overflow: hidden;
-  color: white;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  background-color: black; /* fallback */
 }
 
-.video-container {
+.video-container video {
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  z-index: -1;
-  pointer-events: none; /* so clicks go through */
+  object-fit: cover; /* Ensures the video fills the entire section */
+  
 }
 
-.video-container iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 177.77vh; /* 16:9 aspect ratio width based on viewport height */
-  height: 100vh;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  border: none;
-}
-
-/* Foreground content */
 .content {
   position: relative;
+  color: white; /* Ensures text is readable */
+  text-align: center;
+  padding: 20px;
   z-index: 1;
-  max-width: 90%;
-}
-
-.content h1 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
-}
-
-.cta-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  align-items: center;
-}
-
-.cta-buttons button {
-  padding: 0.75rem 1.25rem;
-  font-size: 1rem;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.cta-buttons button:hover {
-  background-color: #388e3c;
-}
-
-/* Medium and larger screens */
-@media (min-width: 600px) {
-  .content h1 {
-    font-size: 2rem;
-  }
-
-  .cta-buttons {
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .cta-buttons button {
-    font-size: 1.1rem;
-    padding: 0.75rem 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .content h1 {
-    font-size: 2.5rem;
-  }
 }
 
 </style>
- <section class="hero-section">
+<section class="hero-section">
   <div class="video-container">
-    <iframe
-    width="560" height="315"
-    src="https://www.youtube.com/embed/WazK8e88axE?autoplay=1&mute=1&loop=1&playlist=WazK8e88axE&controls=0&showinfo=0&rel=0&modestbranding=1"
-    allow="autoplay; encrypted-media"
-    frameborder="0"
-    allowfullscreen
-  ></iframe>
+    <video autoplay loop muted playsinline>
+      <source src="{% static 'videos/My_video.mp4' %}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
   </div>
   <div class="content">
     <h1>From farm to table, fresh every time.</h1>
     <div class="cta-buttons">
-      <a href=""><button>Order Now</button></a>
-      <a href=""><button>Sell with us</button></a>
+      <a href="#"><button>Order Now</button></a>
+      <a href="#"><button>Sell with us</button></a>
     </div>
   </div>
 </section>
@@ -145,7 +74,7 @@
                   </div>
             </div>
            
-              <a href="marketplace.html" class="cta-button">Browse All Products</a>
+              <a href="{% url 'product_list' %}" class="cta-button">Browse All Products</a>
       
             
         </div>
