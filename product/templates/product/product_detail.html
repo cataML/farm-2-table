@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home | FreshhFarm Connect{% endblock %}
+
+{% block content %}
+<div class="containerr">
+    <h1>{{ product.name }}</h1>
+    <div class="product">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        <div class="details">
+            <p class="price">$ {{ product.price }}</p>
+            <p>{{ product.description }}</p>
+            <p><strong>Stock:</strong> {{ product.stock }}</p>
+            <div class="add-to-cart">
+                <form method="post" action="{% url 'add_to_cart' product.id %}">
+                    {% csrf_token %}
+                    <button type="submit">Add to Cart</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% end block %}

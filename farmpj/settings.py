@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'farmapp.apps.FarmappConfig',
     'cart.apps.CartConfig',
+    'product.apps.ProductConfig',
+    'orders.apps.OrdersConfig',
+    'widget_tweaks'
 ]
 
 MIDDLEWARE = [
@@ -120,6 +123,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
