@@ -3,6 +3,7 @@ from .models import Cart, CartItem
 from product.models import Product
 from django.contrib.auth.decorators import login_required
 
+# Create your views here.
 @login_required
 def cart_view(request):
     cart, created = Cart.objects.get_or_create(user=request.user)
@@ -28,6 +29,7 @@ def remove_from_cart(request, item_id):
 
 def view_cart(request):
     cart_items = CartItem.objects.filter(cart__user=request.user)
-    return render(request, 'cart/view_cart.html', {'cart_items': cart_items}) from django.shortcuts import render
+    return render(request, 'cart/view_cart.html', {'cart_items': cart_items}) 
 
-# Create your views here.
+
+

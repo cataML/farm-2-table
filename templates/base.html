@@ -23,16 +23,26 @@
                 <li><a href="{% url 'index' %}" class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}">Home</a></li>
                 <li><a href="">About Us </a></li>
                 <li><a href="{% url 'market' %}" class="{% if request.resolver_match.url_name == 'market' %}active{% endif %}">Marketplace </a></li>
-                <li><a href="" class="{% if request.resolver_match.url_name == 'cart' %}active{% endif %}">Cart</a></li>
+                <li><a href="{% url 'cart:cart_view' %}" class="{% if request.resolver_match.url_name == 'cart' %}active{% endif %}">Cart</a></li>
                 <li><a href="">Contact</a></li>
             </ul>
-            <div class="icons">
-                <a href=""><i class="fas fa-user"></i> Log in</a> 
-                <a href=""><i class="fas fa-shopping-cart"></i> Cart</a> 
+            {% if user.is_authenticated %}
+            <div>
+            <a href="{% url 'cart:cart_view' %}"><i class="fas fa-shopping-cart"></i> Cart</a> 
+            <a href="{% url 'logout' %}" class="text-red-300 hover:underline">Logout</a>
             </div>
+        {% else %}
+            <div class="icons">
+                <a href="{% url 'login' %}"><i class="fas fa-user"></i> Log in</a> 
+                <a href="{% url 'cart:cart_view' %}"><i class="fas fa-shopping-cart"></i> Cart</a> 
+            </div>
+             {% endif %}
        </nav>
     </header>
    <main>
+    <style>
+
+    </style>
     {% block content %}
    
     {% endblock %}

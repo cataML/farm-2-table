@@ -42,8 +42,9 @@ INSTALLED_APPS = [
     'farmapp.apps.FarmappConfig',
     'cart.apps.CartConfig',
     'product.apps.ProductConfig',
+    'accounts.apps.AccountsConfig',
     'orders.apps.OrdersConfig',
-    'widget_tweaks'
+    #'widget_tweaks'
 ]
 
 MIDDLEWARE = [
