@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #Custom apps
     'home.apps.HomeConfig',
-    'farmapp.apps.FarmappConfig'
+    'farmapp.apps.FarmappConfig',
+    'cart.apps.CartConfig',
 ]
 
 MIDDLEWARE = [

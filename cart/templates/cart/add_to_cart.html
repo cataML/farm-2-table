@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+<div class="container" style="text-align: center; margin-top: 50px;">
+    <h2>{{ product.name }} has been added to your cart! 🛒</h2>
+
+    <p style="margin-top: 20px;">
+        <a href="{% url 'cart_view' %}" class="btn">View Cart</a>
+        &nbsp;&nbsp;
+        <a href="{% url 'marketplace' %}" class="btn">Continue Shopping</a>
+    </p>
+</div>
+{% endblock %}
