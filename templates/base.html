@@ -21,7 +21,7 @@
               </button>
             <ul class="nav-links">
                 <li><a href="{% url 'index' %}" class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}">Home</a></li>
-                <li><a href="">About Us </a></li>
+                <li><a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">About Us </a></li>
                 <li><a href="{% url 'market' %}" class="{% if request.resolver_match.url_name == 'market' %}active{% endif %}">Marketplace </a></li>
                 <li><a href="{% url 'cart:cart_view' %}" class="{% if request.resolver_match.url_name == 'cart' %}active{% endif %}">Cart</a></li>
                 <li><a href="">Contact</a></li>
@@ -60,8 +60,7 @@
         <p>
           FreshFarm Connect is your go-to farm-to-table marketplace — connecting you with fresh, local, and sustainable products from trusted farmers. Eat well. Live well. Support local.
         </p>
-      </div>
-      
+      </div>      
 
       <!-- Links -->
       <div class="footer-col-3">

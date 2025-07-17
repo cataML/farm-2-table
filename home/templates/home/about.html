@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}About us | Freshfarm Connect{% endblock %}
+{% block content %}
+<div class="container">
+    <h2>Who we are</h2>
+    <p>
+        Farm Fresh Market</strong> is a digital marketplace designed to connect local farmers directly with consumers. We believe in fair trade, fresh food, and empowering rural economies through technology. By removing middlemen, we ensure farmers earn more and consumers receive affordable, quality produce.
+    </p>
+</div>
+<section class="container">
+    <div class="values">
+    <div class="slide">
+        <div class="card">
+            <h2>🎯 Our Mission</h2>
+            <p>To revolutionize the food supply chain by making local, organic produce accessible to everyone while supporting small-scale farmers through fair pricing and digital empowerment.</p>
+        </div>
+    </div>
+    <div class="slide">
+       <div class="card">
+            <h2>👁 Our Vision</h2>
+            <p>To become the most trusted farm-to-table marketplace in Africa, empowering farmers, nourishing communities, and inspiring a shift toward sustainability and transparency in food systems.</p>
+        </div>
+    </div>
+    <div class="slide">
+        <div class="card">
+            <h2>🌱 Core Values</h2>
+            <ul>
+                <li><strong>Transparency:</strong> We build trust between farmers and buyers.</li>
+                <li><strong>Sustainability:</strong> We promote eco-friendly agricultural practices.</li>
+                <li><strong>Fairness:</strong> We ensure farmers are paid fairly and promptly.</li>
+                <li><strong>Community:</strong> We support local economies and relationships.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<a href="{% url 'index' %}" class="cta-button">Learn more</a>
+<section class="blog-section">
+    <h1>Our Blog</h1>
+    <div class="post">
+        <h3>What is Farm-to-Table?</h3>
+        <p>
+            Farm-to-table means your food travels a shorter distance from where it’s grown to your plate. Instead of sitting in warehouses or supermarkets for days (or weeks), your fruits, vegetables, dairy, and meats come fresh from local farms, often harvested just before delivery.
+        </p>
+    </div>
+          
+    <div class="post">
+        <h3>Supporting Local Farmers</h3>
+        <p>Learn how our platform empowers small-scale farmers to connect with customers directly and build sustainable livelihoods.</p>
+    </div>
+    
+    <div class="post">
+        <h3>Why Choose Farm-Fresh?</h3>
+        <p>Farm-fresh produce is healthier, tastier, and supports local economies. Find out why making the switch matters.</p>
+    </div>
+    <div class="post">
+        <h3>Why Farm-to-Table Matters: Freshness, Health, and Impact</h3>
+        <p>
+            At Freshfarm Connect, we believe food should nourish not just your body—but your community and the planet too. That’s why we follow a farm-to-table model that connects local farmers directly with you, the consumer.
+        </p>
+    </div>
+</section>
+    
+        <!-- FAQ SECTION -->
+<section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    
+    <div class="faq-item">
+        <div class="faq-question">How do I place an order?</div>
+        <div class="faq-answer">Add products to your cart, fill out your shipping info, and complete payment at checkout.</div>
+    </div>
+    
+    <div class="faq-item">
+        <div class="faq-question">What payment methods are accepted?</div>
+        <div class="faq-answer">We support M-Pesa, PayPal, and bank transfers for your convenience.</div>
+    </div>
+    
+    <div class="faq-item">
+        <div class="faq-question">Can I cancel or change my order?</div>
+        <div class="faq-answer">Yes, contact our support team within 2 hours to change or cancel your order.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">How fresh are the fruits and vegetables?</div>
+        <div class="faq-answer">We guarantee same-day or next-day harvest and delivery. Your produce is picked fresh from the farm and delivered within 24–48 hours to maintain quality and nutrition.</div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question">Do you offer subscriptions or weekly baskets?</div>
+        <div class="faq-answer">Yes! You can subscribe to receive weekly or biweekly baskets of seasonal produce. Customize your basket or let us pick the best of the week for you.</div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question">Can I become a supplier or farmer partner?</div>
+        <div class="faq faq-answer">Absolutely! If you're a farmer interested in partnering with us, please visit our Become a Supplier page or contact us directly.</div>
+    </div>
+</section>
+<script>
+        // FAQ toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+          question.addEventListener('click', () => {
+            question.parentElement.classList.toggle('active');
+          });
+        });
+      </script>
+{% endblock %}
