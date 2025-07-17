@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Contact us | FreshFarm Connect{% endblock %}
+{% block content %}
+<section class="contact-section">
+    <h2>Contact us</h2>
+    <form method="POST" class="contact-form">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<div class="contact-details">
+    <h3>Reach us directly:</h3>
+    <p>
+        <i class="fas fa-phone-alt"></i>
+        <a href="tel:+254792501015">+254 792 501 015</a>
+    </p>
+    <p>
+       <i class="fas fa-envelope"></i> 
+       <a href="mailto:info@freshfarmconnect.com">info@freshfarmconnect.com</a>
+    </p>
+    <p>
+        <i class="fas fa-map-marker-alt"></i>
+        Nairobi, Kenya
+    </p>
+
+</div>
+{% endblock %}
